@@ -21,7 +21,7 @@ jobs:
     environment: dev
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-staging:
     needs: wave-devtest
@@ -29,7 +29,7 @@ jobs:
     environment: qa
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-prod1:
     needs: wave-staging
@@ -37,7 +37,7 @@ jobs:
     environment: prod1
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
       - if: github.event.inputs.cause_failure == 'true'
         name: failing
         run: |
@@ -50,7 +50,7 @@ jobs:
     environment: prod2
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-prod3:
     needs: wave-prod1
@@ -58,7 +58,7 @@ jobs:
     environment: prod3
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-prod4:
     needs: wave-prod1
@@ -66,7 +66,7 @@ jobs:
     environment: prod4
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-prod5:
     needs: wave-prod1
@@ -74,7 +74,7 @@ jobs:
     environment: prod5
     steps:
       - name: hello
-        run: echo "### configuring ${GITHUB_ACTION}" >> $GITHUB_STEP_SUMMARY
+        run: echo "### configuring ${GITHUB_JOB}" >> $GITHUB_STEP_SUMMARY
 
   wave-complete:
     needs: [wave-prod1, wave-prod2, wave-prod3, wave-prod4, wave-prod5]
