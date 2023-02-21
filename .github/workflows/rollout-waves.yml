@@ -20,6 +20,7 @@ jobs:
 
   wave-staging:
     needs: wave-devtest
+    runs-on: ubuntu-latest
     environment: qa
     steps:
       - name: hello
@@ -34,6 +35,7 @@ jobs:
 
   wave-prod2:
     needs: wave-prod1
+    runs-on: ubuntu-latest
     environemnt: prod
     steps:
       - name: hello
@@ -41,6 +43,7 @@ jobs:
 
   wave-prod3:
     needs: wave-prod1
+    runs-on: ubuntu-latest
     environemnt: prod
     steps:
       - name: hello
@@ -48,18 +51,21 @@ jobs:
 
   wave-prod4:
     needs: wave-prod1
+    runs-on: ubuntu-latest
     steps:
       - name: hello
         run: echo hello world
 
   wave-prod5:
     needs: wave-prod1
+    runs-on: ubuntu-latest
     steps:
       - name: hello
         run: echo hello world
 
   wave-complete:
     needs: [wave-prod1, wave-prod2, wave-prod3, wave-prod4, wave-prod5]
+    runs-on: ubuntu-latest
     steps:
       - name: hello
         run: echo hello world
