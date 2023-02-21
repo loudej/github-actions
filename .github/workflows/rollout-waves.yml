@@ -75,4 +75,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: hello
-        run: echo hello world
+        run: echo commit!
+
+  wave-catch:
+    needs: wave-complete
+    if: ${{ failure() }}
+    steps:
+      - name: catch
+        run: echo reverting changes!!
