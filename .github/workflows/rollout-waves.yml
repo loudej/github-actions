@@ -33,6 +33,10 @@ jobs:
     steps:
       - name: hello
         run: echo hello world
+      - name: failing
+        run: |
+          echo forcing an error
+          exit 1
 
   wave-prod2:
     needs: wave-prod1
