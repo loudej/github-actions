@@ -1,0 +1,65 @@
+name: Rollout sample
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+  # run manually
+  workflow_dispatch:
+
+jobs:
+  wave-devtest:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-staging:
+    needs: wave-devtest
+    environment: qa
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-prod1:
+    needs: wave-staging
+    environemnt: prod
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-prod2:
+    needs: wave-prod1
+    environemnt: prod
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-prod3:
+    needs: wave-prod1
+    environemnt: prod
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-prod4:
+    needs: wave-prod1
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-prod5:
+    needs: wave-prod1
+    steps:
+      - name: hello
+        run: echo hello world
+
+  wave-complete:
+    needs: [wave-prod1, wave-prod2, wave-prod3, wave-prod4, wave-prod5]
+    steps:
+      - name: hello
+        run: echo hello world
