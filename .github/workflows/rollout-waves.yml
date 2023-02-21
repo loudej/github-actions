@@ -29,7 +29,7 @@ jobs:
   wave-prod1:
     needs: wave-staging
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod1
     steps:
       - name: hello
         run: echo hello world
@@ -37,7 +37,7 @@ jobs:
   wave-prod2:
     needs: wave-prod1
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod2
     steps:
       - name: hello
         run: echo hello world
@@ -45,7 +45,7 @@ jobs:
   wave-prod3:
     needs: wave-prod1
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod3
     steps:
       - name: hello
         run: echo hello world
@@ -53,7 +53,7 @@ jobs:
   wave-prod4:
     needs: wave-prod1
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod4
     steps:
       - name: hello
         run: echo hello world
@@ -61,7 +61,7 @@ jobs:
   wave-prod5:
     needs: wave-prod1
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod5
     steps:
       - name: hello
         run: echo hello world
