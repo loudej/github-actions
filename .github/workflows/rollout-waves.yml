@@ -28,6 +28,7 @@ jobs:
 
   wave-prod1:
     needs: wave-staging
+    runs-on: ubuntu-latest
     environment: prod
     steps:
       - name: hello
